@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Health & Safety Hazard Spotting</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 5px;
+  }
+
+  #game-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  #office-image {
+    width: 900px;
+    border: 3px solid #333;
+  }
+
+  .hotspot {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+  }
+
+  #feedback {
+    margin-top: 15px;
+    font-size: 18px;
+    min-height: 30px;
+  }
+
+  .correct {
+    color: green;
+    font-weight: bold;
+  }
+
+  .incorrect {
+    color: red;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Spot the Health & Safety Hazards</h1>
+<p>Click on parts of the image where you think there is a health & safety risk.</p>
+
+<div id="game-container">
+  <img src="office_hazards.png" id="office-image">
+
+  <!-- Hotspots -->
+  <div class="hotspot" style="top: 420px; left: 180px;"
+       onclick="correct('Trailing cable – trip hazard')"></div>
+
+  <div class="hotspot" style="top: 380px; left: 40px;"
+       onclick="correct('Boxes blocking emergency exit')"></div>
+
+  <div class="hotspot" style="top: 150px; left: 620px;"
+       onclick="correct('Standing on chair to reach shelves')"></div>
+
+  <div class="hotspot" style="top: 230px; left: 650px;"
+       onclick="correct('Overloaded shelving – falling objects risk')"></div>
+
+  <div class="hotspot" style="top: 330px; left: 760px;"
+       onclick="correct('Fire extinguisher obstructed')"></div>
+</div>
+
+<p id="feedback"></p>
+
+<script>
+  function correct(message) {
+    document.getElementById("feedback").innerHTML =
+      "<span class='correct'>✔ Correct:</span> " + message;
+  }
+
+  document.getElementById("office-image").onclick = function () {
+    document.getElementById("feedback").innerHTML =
+      "<span class='incorrect'>✖ Incorrect:</span> No hazard identified here.";
+  };
+</script>
+
+</body>
+</html>
